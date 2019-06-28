@@ -34,7 +34,6 @@
             <b-nav-item href="#" @click="$router.push('/productos')">Productos</b-nav-item>
             <b-nav-item href="#" @click="$router.push('/personas')">Persona</b-nav-item>
             <b-nav-item href="#" @click="$router.push('/pedidos')">Pedido</b-nav-item>
-            <b-nav-item href="#" @click="$router.push('/funcionalidad')">Funcionalidad</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown right>
