@@ -3,7 +3,6 @@
     <ingredientes />
     <br>
     <br>
-    <h2>vamos a ver si puedeo hacer la funcionalidad ingredientes</h2>
   </div>
 </template>
 

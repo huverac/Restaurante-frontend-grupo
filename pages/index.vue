@@ -235,7 +235,6 @@
 import { tableMixin } from '@/mixins/table-mixin'
 import { crudMixin } from '@/mixins/crud-mixin'
 import validarForm from '@/mixins/validarForm'
-
 const FIELDS_PERSONA = [
   { key: 'cedulaPersona', label: 'Número de identificación' },
   { key: 'nombresPersona', label: 'Nombres' },
@@ -361,4 +360,3 @@ etiqueta{
   font-family: 'Special Elite', cursive;
 }
 </style>
-
