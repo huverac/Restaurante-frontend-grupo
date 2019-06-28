@@ -317,18 +317,7 @@ export default {
     payload: JSON.parse(JSON.stringify(PAYLOAD)),
     nombreSearch: ''
   }),
-  created: function() {
-    this.getLibrosWs()
-  },
   methods: {
-    getLibrosWs: async function() {
-      try {
-        this.listaLibros = (await this.$http.get('/api/libro/list')).data
-      } catch (error) {
-        this.$toast(error.response.data)
-        this.listaLibros = []
-      }
-    },
     gestionar: async function() {
       if (!this.validarCampos(this.payload)) {
         return
@@ -339,6 +328,7 @@ export default {
           this.payload.form
         )).data
         this.$toast.success(resp.message)
+        this.crudSettings.showModal= !this.crudSettings.showModal
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
