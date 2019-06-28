@@ -336,7 +336,7 @@ export default {
       }
       try {
         let resp = (await this.$http.post(
-          '/api/persona/register',
+          '/api/persona/registerpers',
           this.payload.form
         )).data
         this.$toast.success(resp.message)

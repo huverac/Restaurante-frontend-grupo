@@ -16,35 +16,46 @@
           <br>
         </aside>
       </div>
+      <br>
+      <br>
+      <div id="Inicio" />
+
       <b-navbar toggleable="lg" type="light" variant="light">
-        <b-navbar-brand href="#" @click="$router.push('/')">Inicio</b-navbar-brand>
+        <b-navbar-brand href="#Inicio" @click="$router.push('/')"><mayor2>Cantinita Bar</mayor2></b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse" />
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item href="#" @click="$router.push('/libro')">¿Quiénes somos?</b-nav-item>
-            <b-nav-item href="#" @click="$router.push('/')">Reseña Historica</b-nav-item>
+            <b-nav-item href="#Quienese" @click="$router.push('/')">¿Quiénes somos?</b-nav-item>
             <b-nav-item href="#Mision_Vision" @click="$router.push('/')">Misión y Visión</b-nav-item>
             <b-nav-item href="#Administrativo" @click="$router.push('/')">Directorio administrativo</b-nav-item>
             <b-nav-item href="#" @click="$router.push('/ingredientes')">Ingredientes</b-nav-item>
             <b-nav-item href="#" @click="$router.push('/productos')">Productos</b-nav-item>
-            <b-nav-item href="#" @click="$router.push('/')">Promociones</b-nav-item>
-            <b-nav-item href="#domicilios" @click="$router.push('/')">Domicilios</b-nav-item>
+            <b-nav-item href="#" @click="$router.push('/personas')">Persona</b-nav-item>
+            <b-nav-item href="#" @click="$router.push('/pedidos')">Pedido</b-nav-item>
+            <b-nav-item href="#" @click="$router.push('/funcionalidad')">Funcionalidad</b-nav-item>
           </b-navbar-nav>
-
-          <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown right>
               <!-- Using 'button-content' slot -->
-              <template slot="button-content"><em>User</em></template>
-              <b-dropdown-item href="#">Profile</b-dropdown-item>
-              <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+              <template slot="button-content">Logueo</template>
+              <b-dropdown-item href="#" @click="modalShow =! modalShow">Iniciar Sesion</b-dropdown-item>
+              <b-dropdown-item href="#">Registrarse</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
       <br>
+      <div>
+        <b-modal v-model="modalShow" title="Inicio de sesion">
+          <b-form>
+            <b-form-input placeholder="Usuario">Usuario</b-form-input>
+            <br>
+            <b-form-input placeholder="Contraseña">Contraseña</b-form-input>
+          </b-form>
+        </b-modal>
+      </div>
       <br>
       <center>
         <figure class="icon-cards mt-3">
@@ -85,6 +96,15 @@ export default {
 
 }
 </script>
+<script>
+  export default {
+    data() {
+      return {
+        modalShow: false
+      }
+    }
+  }
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple|Special+Elite&display=swap');
@@ -100,8 +120,13 @@ export default {
     font-family: 'Fredericka the Great', cursive;
     font-size: 55px;
   }
+  mayor2{
+    font-family: 'Special Elite', cursive;
+    font-family: 'Homemade Apple', cursive;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 24px;
+  }
  h1{
-
    font-style: italic;
    padding-top: 5%;
    padding-bottom : 5%;
@@ -146,17 +171,15 @@ export default {
 	border-radius: 6px;
 		}
 		.icon-cards__item:nth-child(1) {
-	background: ;
 	-webkit-transform: rotateY(0) translateZ(35vw);
 	transform: rotateY(0) translateZ(35vw);
 		}
 		.icon-cards__item:nth-child(2) {
-	background: ;
 	-webkit-transform: rotateY(120deg) translateZ(35vw);
 	transform: rotateY(120deg) translateZ(35vw);
 		}
 	.icon-cards__item:nth-child(3) {
-	background: ;
+
 	-webkit-transform: rotateY(240deg) translateZ(35vw);
 	transform: rotateY(240deg) translateZ(35vw);
 		}
