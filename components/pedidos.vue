@@ -7,18 +7,19 @@
         <i class="fa fa-plus" aria-hidden="true" /> Nuevo
       </b-btn>
     
-      <b-btn variant="success" @click="getIngredientesWs" style="margin-left:10px">
+      <b-btn variant="success" @click="getPedidosWs" style="margin-left:10px">
         <i class="fa fa-refresh" aria-hidden="true" /> Refrescar
       </b-btn>
       <b-btn variant="warning" @click="crudSettingsthig.showModal = !crudSettingsthig.showModal" style="margin-left:10px">
         <i class="fa fa-search" aria-hidden="true" /> Buscar
       </b-btn>
     </div>
-    
+
+
     <b-modal v-model="crudSettingsthig.showModal" :title="tituloFuncionalidad">
       <b-form-group label="IdBuscar">
         <b-input
-          placeholder="datoBusc del ingrediente"
+          placeholder="datoBusc del pedido"
           ref="datoBusc"
           v-model="payload2.form.datoBusc"
           @keydown.native="validarCantidadCaracteres($event, payload2.form.datoBusc, 50)"
@@ -31,7 +32,7 @@
 
 
     <div class="mt-3">
-      <b-alert show variant="primary" v-if="listarIngredientes.length <= 0">No hay registros</b-alert>
+      <b-alert show variant="primary" v-if="listarPedidos.length <= 0">No hay registros</b-alert>
       <b-table
         responsive
         striped
@@ -40,70 +41,88 @@
         stacked="md"
         :per-page="perPage"
         :current-page="currentPage"
-        :items="listarIngredientes"
+        :items="listarPedidos"
       >
         <template slot="acciones" slot-scope="data">
-          <b-btn variant="danger" size="lg" @click="eliminar(data.item.ingrId)" title="Eliminar">
+          <b-btn variant="danger" size="lg" @click="eliminar(data.item.pedId)" title="Eliminar">
             <i class="fa fa-trash" aria-hidden="true" />
-          </b-btn>
-          <b-btn variant="primary" size="lg" @click="consultar_modal(data.item.ingrId)" title="Modificar">
-            <i class="fa fa-pencil-square-o" aria-hidden="true" />
           </b-btn>
         </template>
       </b-table>
       
       <pagination
-        :total-rows="listarIngredientes.length"
+        :total-rows="listarPedidos.length"
         v-model="currentPage"
         :per-page="perPage"
         :list-per-page="listPerPage"
         @per-page-chaged="perPage = $event"
       />
     </div>
-    
+
     <b-modal v-model="crudSettings.showModal" :title="tituloFuncionalidad">
-      <b-form-group label="ID">
-        <b-input 
-          placeholder="ID del ingrediente"
-          ref="ingrId"
-          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrId, 50)"
-          v-model="payload.form.ingrId"
+      <b-form-group label="ID Persona">
+        <b-input
+          placeholder="ID del Persona"
+          ref="persId"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.persId, 50)"
+          v-model="payload.form.persId"
         />
       </b-form-group>
 
-      <b-form-group label="Nombre">
+      <b-form-group label="ID Pedido">
         <b-input
-          placeholder="Nombre del ingrediente"
-          ref="ingrNombre"
-          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrNombre, 50)"
-          v-model="payload.form.ingrNombre"
-        />
-      </b-form-group>
-     
-      <b-form-group label="Observaciones">
-        <b-input
-          v-model="payload.form.ingrObservaciones"
-          placeholder="Observaciones"
-          ref="ingrObservaciones"
-          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrObservaciones, 50)"
+          placeholder="ID del Pedido"
+          ref="pedId"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.pedId, 50)"
+          v-model="payload.form.pedId"
         />
       </b-form-group>
 
-      <b-form-group label="Existente">
+      <b-form-group label="Valor">
         <b-input
-          v-model="payload.form.ingrExistentes"
-          placeholder="Cantidad de Ingredientes"
-          ref="ingrExistentes"
+          placeholder="valor del Pedido"
+          ref="pedValor"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.pedValor, 50)"
+          v-model="payload.form.pedValor"
         />
       </b-form-group>
 
-      <b-form-group label="Minimo">
+      <b-form-group label="Descuento">
         <b-input
-          v-model="payload.form.ingrMinimo"
-          placeholder="Minimo de Ingredientes"
-          ref="ingrMinimo"
+          placeholder="valor del descuento"
+          ref="pedDescuento"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.pedDescuento, 50)"
+          v-model="payload.form.pedDescuento"
         />
       </b-form-group>
+
+      <b-form-group label="ID Vendedor">
+        <b-input
+          placeholder="ID del vendedor"
+          ref="idVendedor"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.idVendedor, 50)"
+          v-model="payload.form.idVendedor"
+        />
+      </b-form-group>
+
+      <b-form-group label="Estado">
+        <b-form-select v-model="payload.form.pedEstado" class="mb-3">
+          <option :value="null" disabled>Please select an option</option>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Cancelado">Cancelado</option>
+        </b-form-select>
+      </b-form-group>
+
+      <b-form-group label="ID mesa">
+        <b-input
+          placeholder="ID del mesa"
+          ref="mesaId"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.mesaId, 50)"
+          v-model="payload.form.mesaId"
+        />
+      </b-form-group>
+
+      
       <div slot="modal-footer">
         <b-btn class="float-right" variant="primary" @click="verificar">{{ crudSettings.msgBtn }}</b-btn>
       </div>
@@ -111,23 +130,25 @@
   </div>
 </template>
 
+
 <script>
 import { tableMixin } from '@/mixins/table-mixin'
 import { crudMixin } from '@/mixins/crud-mixin'
 import { crudModal } from '@/mixins/crud-mixin2'
 import validarForm from '@/mixins/validarForm'
 import Pagination from '@/components/pagination'
-/* import _ from 'lodash' */
 
-const FIELDS_INGREDIENTES = [
-  { key: 'ingrId', label:'ID'},
-  { key: 'ingrNombre', label: 'Nombre' },
-  { key: 'ingrObservaciones', label: 'Observaciones' },
-  { key: 'ingrExistentes', label: 'Existentes' },
-  { key: 'ingrMinimo', label: 'Minimo' },
+const FIELDS_PEDIDOS = [
+  { key: 'persId', label:'ID persona'},
+  { key: 'pedId', label: 'ID pedido' },
+  { key: 'pedFecha', label: 'Fecha' },
+  { key: 'pedValor', label: 'Valor' },
+  { key: 'pedDescuento', label: 'Descuento' },
+  { key: 'idVendedor', label: 'ID vendedor' },
+  { key: 'pedEstado', label: 'Estado' },
+  { key: 'mesaId', label: 'mesa' },
   { key: 'acciones', label: 'Accciones' } 
 ]
-  
 
 const PAYLOAD2 = {
   form: {
@@ -139,79 +160,103 @@ const PAYLOAD2 = {
       type:'String',
       required:true,
       limite:50,
-      msg:'ID del ingrediente'
+      msg:'ID del pedido'
     }
    }
   }
 const PAYLOAD = {
   form: {
-    ingrId: '',
-    ingrNombre: '',
-    ingrObservaciones: '',
-    ingrExistentes: '',
-    ingrMinimo:''
+    persId: '',
+    pedId: '',
+    pedFecha: '',
+    pedValor: '',
+    pedDescuento: '',
+    idVendedor: '',
+    pedEstado: '',
+    mesaId: ''
   },
   config: {
-    ingrId:{
+    persId:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'ID del ingrediente'
+      msg:'ID de persona'
     },
-    ingrNombre: {
+    pedId: {
       type: 'String',
       required: true,
       limite: 50,
-      msg: 'Nombre del ingredientes'
+      msg: 'ID de pedido'
     },
-    ingrObservaciones: {
-      type: 'String',
+    pedFecha: {
+      type: 'Date',
       limite: 50,
-      required: true,
-      msg: 'Observaciones'
+      required: false,
+      msg: 'Fecha'
     },
-    ingrExistentes:{
+    pedValor:{
+      type:'float',
+      required:true,
+      limite:50,
+      msg:'Valor'
+    },
+    pedDescuento:{
+      type:'float',
+      required:true,
+      limite:50,
+      msg:'Descuento'
+    },
+    idVendedor:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'Existentes '
+      msg:'Id vendedor'
     },
-    ingrMinimo:{
+    pedEstado:{
+      type:'String',
+      required:true,
+      limite:50,
+      msg:'estado'
+    },
+    mesaId:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'Minimo '
+      msg:'ID mesa'
     }
   }
 }
 
 export default {
-  name: 'Ingredientes',
-  components: {
+
+    name: 'Pedidos',
+    components: {
     Pagination
   },
   mixins: [tableMixin, validarForm, crudMixin(PAYLOAD), crudModal(PAYLOAD2)],
   data: () => ({
-    listarIngredientes: [],
-    fields: FIELDS_INGREDIENTES,
-    tituloFuncionalidad: 'Gestionar Ingredientes',
+    listarPedidos: [],
+    fields: FIELDS_PEDIDOS,
+    tituloFuncionalidad: 'Gestionar Pedidos',
     payload: JSON.parse(JSON.stringify(PAYLOAD)),
     payload2: JSON.parse(JSON.stringify(PAYLOAD2)),
     nombreSearch: '',
   }),
+
   created: function() {
-    this.getIngredientesWs()
+    this.getPedidosWs()
   },
   methods: {
 
-    getIngredientesWs: async function() {
+    getPedidosWs: async function() {
       try {
-        this.listarIngredientes = (await this.$http.get('/api/ingrediente/list')).data
+        this.listarPedidos = (await this.$http.get('/api/pedido/list')).data
       } catch (error) {
         this.$toast(error.response.data)
-        this.listarIngredientes = []
+        this.listarPedidos = []
       }
     },
+
     gestionar: async function() {
       if (!this.validarCampos(this.payload)) {
         return
@@ -219,21 +264,22 @@ export default {
 
       try {
         let resp = (await this.$http.post(
-          '/api/ingrediente/register',
+          '/api/pedido/register',
           this.payload.form
         )).data
         this.$toast.success(resp.msg)
-        await this.getIngredientesWs()
+        await this.getPedidosWs()
         this.crudSettings.showModal = !this.crudSettings.showModal
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
     },
-    eliminar: async function(ingrId) {
+
+    eliminar: async function(pedId) {
       const answer = await this.$bvModal.msgBoxConfirm(
-          "¿Desea eliminar el ingrediente?",
+          "¿Desea eliminar el pedido?",
           {
-            title: "Eliminar ingrediente",
+            title: "Eliminar pedido",
             size: "sm",
             buttonSize: "sm",
             okVariant: "primary",
@@ -249,16 +295,17 @@ export default {
         }
 
       try {
-        let resp = (await this.$http.post('/api/ingrediente/del', {
-          ingrId:ingrId
+        let resp = (await this.$http.post('/api/pedido/del', {
+          pedId:pedId
         })).data
         this.$toast.success(resp.msg)
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
 
-      await this.getIngredientesWs()
+     this.getPedidosWs()
     },
+
     verificar:async function(){
      
       try {
@@ -279,58 +326,27 @@ export default {
         this.$toast.error(error.response.data.error)
       }
     },
-    modificar: async function(){
-      try {
-        let resp = (await this.$http.post('/api/ingrediente/update',this.payload.form)).data
-        this.$toast.success(resp.msg)
-        this.crudSettings.showModal = !this.crudSettings.showModal
-        await this.getIngredientesWs()
-
-      } catch (error) {
-        this.$toast.error(error.response.data.error)
-      }
-
-    },
-    consultar_modal:async function(ingrId){
-      try {
-        let ingredientes=[]
-        ingredientes=(await this.$http.post('/api/ingrediente/consultar',
-        {ingrId:ingrId}
-        )).data
-        console.log(ingredientes[0].ingrObservaciones)
-        this.payload.form.ingrId=ingredientes[0].ingrId,
-        this.payload.form.ingrNombre=ingredientes[0].ingrNombre,
-        this.payload.form.ingrObservaciones=ingredientes[0].ingrObservaciones,
-        this.payload.form.ingrExistentes=ingredientes[0].ingrExistentes,
-        this.payload.form.ingrMinimo=ingredientes[0].ingrMinimo
-        this.sendModificar(this.payload.form)
-
-      } catch (error) {
-                this.$toast.error(error.response.data.error)
-
-      }
-    },
     buscar:async function(){
      if(!this.validarCampos(this.payload2)){
         return
       }
         try {
        
-        this.listarIngredientes=[]
-        this.listarIngredientes=(await this.$http.post('/api/ingrediente/consultar',
-        {ingrId:this.payload2.form.datoBusc}
+        this.listarPedidos=[]
+        this.listarPedidos=(await this.$http.post('/api/pedido/consultar',
+        {pedId:this.payload2.form.datoBusc}
         )).data
 
         this.crudSettingsthig.showModal= !this.crudSettingsthig.showModal
  
       } catch (error) {
+        console.log("esta entrando por un errror")
         this.$toast.error(error.response.data.error)
-        this.listarIngredientes=[]
+        this.listarPedidos=[]
       }
-
-
     }
-  }
+    
+}
 }
 </script>
 

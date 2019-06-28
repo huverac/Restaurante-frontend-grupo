@@ -7,7 +7,7 @@
         <i class="fa fa-plus" aria-hidden="true" /> Nuevo
       </b-btn>
     
-      <b-btn variant="success" @click="getIngredientesWs" style="margin-left:10px">
+      <b-btn variant="success" @click="getFuncionalidadWs" style="margin-left:10px">
         <i class="fa fa-refresh" aria-hidden="true" /> Refrescar
       </b-btn>
       <b-btn variant="warning" @click="crudSettingsthig.showModal = !crudSettingsthig.showModal" style="margin-left:10px">
@@ -18,7 +18,7 @@
     <b-modal v-model="crudSettingsthig.showModal" :title="tituloFuncionalidad">
       <b-form-group label="IdBuscar">
         <b-input
-          placeholder="datoBusc del ingrediente"
+          placeholder="datoBusc de la funcionalidad"
           ref="datoBusc"
           v-model="payload2.form.datoBusc"
           @keydown.native="validarCantidadCaracteres($event, payload2.form.datoBusc, 50)"
@@ -31,7 +31,7 @@
 
 
     <div class="mt-3">
-      <b-alert show variant="primary" v-if="listarIngredientes.length <= 0">No hay registros</b-alert>
+      <b-alert show variant="primary" v-if="listarFuncionalidad.length <= 0">No hay registros</b-alert>
       <b-table
         responsive
         striped
@@ -40,20 +40,20 @@
         stacked="md"
         :per-page="perPage"
         :current-page="currentPage"
-        :items="listarIngredientes"
+        :items="listarFuncionalidad"
       >
         <template slot="acciones" slot-scope="data">
-          <b-btn variant="danger" size="lg" @click="eliminar(data.item.ingrId)" title="Eliminar">
+          <b-btn variant="danger" size="lg" @click="eliminar(data.item.funcId)" title="Eliminar">
             <i class="fa fa-trash" aria-hidden="true" />
           </b-btn>
-          <b-btn variant="primary" size="lg" @click="consultar_modal(data.item.ingrId)" title="Modificar">
+          <b-btn variant="primary" size="lg" @click="consultar_modal(data.item.funcId)" title="Modificar">
             <i class="fa fa-pencil-square-o" aria-hidden="true" />
           </b-btn>
         </template>
       </b-table>
       
       <pagination
-        :total-rows="listarIngredientes.length"
+        :total-rows="listarFuncionalidad.length"
         v-model="currentPage"
         :per-page="perPage"
         :list-per-page="listPerPage"
@@ -63,47 +63,77 @@
     
     <b-modal v-model="crudSettings.showModal" :title="tituloFuncionalidad">
       <b-form-group label="ID">
-        <b-input 
-          placeholder="ID del ingrediente"
-          ref="ingrId"
-          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrId, 50)"
-          v-model="payload.form.ingrId"
+        <b-input
+          placeholder="ID Funcionalidad"
+          ref="funcId"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.funcId, 50)"
+          v-model="payload.form.funcId"
         />
       </b-form-group>
 
       <b-form-group label="Nombre">
         <b-input
-          placeholder="Nombre del ingrediente"
-          ref="ingrNombre"
-          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrNombre, 50)"
-          v-model="payload.form.ingrNombre"
+          placeholder="Nombre de la Funcionalidad"
+          ref="funcNombre"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.funcNombre, 50)"
+          v-model="payload.form.funcNombre"
         />
       </b-form-group>
      
-      <b-form-group label="Observaciones">
+      <b-form-group label="Descripcion">
         <b-input
-          v-model="payload.form.ingrObservaciones"
-          placeholder="Observaciones"
-          ref="ingrObservaciones"
-          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrObservaciones, 50)"
+          placeholder="Descripcion de Funcionalidad"
+          ref="funcDesc"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.funcDesc, 50)"
+          v-model="payload.form.funcDesc"
         />
       </b-form-group>
 
-      <b-form-group label="Existente">
+      <b-form-group label="Icono">
         <b-input
-          v-model="payload.form.ingrExistentes"
-          placeholder="Cantidad de Ingredientes"
-          ref="ingrExistentes"
+          placeholder="Icono Funcionalidad"
+          ref="funcIcn"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.funcIcn,50)"
+          v-model="payload.form.funcIcn"
         />
       </b-form-group>
 
-      <b-form-group label="Minimo">
+      <b-form-group label="URL">
         <b-input
-          v-model="payload.form.ingrMinimo"
-          placeholder="Minimo de Ingredientes"
-          ref="ingrMinimo"
+          placeholder="URL Funcionalidad"
+          ref="funcUrl"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.funcUrl,50)"
+          v-model="payload.form.funcUrl"
         />
       </b-form-group>
+
+      <b-form-group label="Orden">
+        <b-input
+          placeholder="Orden de Funcionalidad"
+          ref="funcOrdn"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.funcOrdn,50)"
+          v-model="payload.form.funcOrdn"
+        />
+      </b-form-group>
+
+      <b-form-group label="Tipo">
+        <b-input
+          placeholder="Tipo de Funcionalidad"
+          ref="funcTp"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.funcTp,50)"
+          v-model="payload.form.funcTp"
+        />
+      </b-form-group>
+
+      <b-form-group label="Padre">
+        <b-input
+          placeholder="Funcionalidad Padre"
+          ref="funcPa"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.funcPa,50)"
+          v-model="payload.form.funcPa"
+        />
+      </b-form-group>
+      
       <div slot="modal-footer">
         <b-btn class="float-right" variant="primary" @click="verificar">{{ crudSettings.msgBtn }}</b-btn>
       </div>
@@ -119,13 +149,16 @@ import validarForm from '@/mixins/validarForm'
 import Pagination from '@/components/pagination'
 /* import _ from 'lodash' */
 
-const FIELDS_INGREDIENTES = [
-  { key: 'ingrId', label:'ID'},
-  { key: 'ingrNombre', label: 'Nombre' },
-  { key: 'ingrObservaciones', label: 'Observaciones' },
-  { key: 'ingrExistentes', label: 'Existentes' },
-  { key: 'ingrMinimo', label: 'Minimo' },
-  { key: 'acciones', label: 'Accciones' } 
+const FIELDS_FUNCIONALIDAD = [
+  { key: 'funcId', label:'ID'},
+  { key: 'funcNombre', label: 'Nombre' },
+  { key: 'funcDesc', label: 'Descripcion' },
+  { key: 'funcIcn', label: 'Icono' },
+  { key: 'funcUrl', label: 'URL' },
+  { key: 'funcOrdn', label: 'Orden' },
+  { key: 'funcTp', label: 'Tipo' } ,
+  { key: 'funcPa', label: 'Padre' } ,
+  { key: 'acciones', label: 'Acciones' } 
 ]
   
 
@@ -139,77 +172,98 @@ const PAYLOAD2 = {
       type:'String',
       required:true,
       limite:50,
-      msg:'ID del ingrediente'
+      msg:'ID de la Funcionalidad'
     }
    }
   }
 const PAYLOAD = {
   form: {
-    ingrId: '',
-    ingrNombre: '',
-    ingrObservaciones: '',
-    ingrExistentes: '',
-    ingrMinimo:''
+    funcId: '',
+    funcNombre: '',
+    funcDesc: '',
+    funcIcn: '',
+    funcUrl:'',
+    funcOrdn:'',
+    funcTp:''
+
   },
   config: {
-    ingrId:{
+    funcId:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'ID del ingrediente'
+      msg:'ID de Funcionalidad'
     },
-    ingrNombre: {
+    funcNombre: {
       type: 'String',
       required: true,
       limite: 50,
-      msg: 'Nombre del ingredientes'
+      msg: 'Nombre de Funcionalidad'
     },
-    ingrObservaciones: {
+    funcDesc: {
       type: 'String',
       limite: 50,
       required: true,
-      msg: 'Observaciones'
+      msg: 'Descripcion'
     },
-    ingrExistentes:{
+    funcIcn:{
+      type:'String',
+      required:true,
+      limite:50,
+      msg:'Icono de Funcionalidad'
+    },
+    funcUrl:{
+      type:'String',
+      required:true,
+      limite:50,
+      msg:'Url'
+    },
+    funcOrdn:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'Existentes '
+      msg:'Orden'
     },
-    ingrMinimo:{
+    funcTp:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'Minimo '
+      msg:'Tipo de Funcionalidad'
+    }, 
+    funcPa:{
+      type:'Integer',
+      required:true,
+      limite:50,
+      msg:'Funcionalidad Padre'
     }
   }
 }
 
 export default {
-  name: 'Ingredientes',
+  name: 'Funcionalidad',
   components: {
     Pagination
   },
   mixins: [tableMixin, validarForm, crudMixin(PAYLOAD), crudModal(PAYLOAD2)],
   data: () => ({
-    listarIngredientes: [],
-    fields: FIELDS_INGREDIENTES,
-    tituloFuncionalidad: 'Gestionar Ingredientes',
+    listarFuncionalidad: [],
+    fields: FIELDS_FUNCIONALIDAD,
+    tituloFuncionalidad: 'Gestionar Funcionalidad',
     payload: JSON.parse(JSON.stringify(PAYLOAD)),
     payload2: JSON.parse(JSON.stringify(PAYLOAD2)),
     nombreSearch: '',
   }),
   created: function() {
-    this.getIngredientesWs()
+    this.getFuncionalidadWs()
   },
   methods: {
 
-    getIngredientesWs: async function() {
+    getFuncionalidadWs: async function() {
       try {
-        this.listarIngredientes = (await this.$http.get('/api/ingrediente/list')).data
+        this.listarFuncionalidad = (await this.$http.get('/api/funcionalidad/list')).data
       } catch (error) {
         this.$toast(error.response.data)
-        this.listarIngredientes = []
+        this.listarFuncionalidad = []
       }
     },
     gestionar: async function() {
@@ -219,21 +273,21 @@ export default {
 
       try {
         let resp = (await this.$http.post(
-          '/api/ingrediente/register',
+          '/api/funcionalidad/register',
           this.payload.form
         )).data
         this.$toast.success(resp.msg)
-        await this.getIngredientesWs()
+        await this.getFuncionalidadWs()
         this.crudSettings.showModal = !this.crudSettings.showModal
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
     },
-    eliminar: async function(ingrId) {
+    eliminar: async function(funcId) {
       const answer = await this.$bvModal.msgBoxConfirm(
-          "¿Desea eliminar el ingrediente?",
+          "¿Desea eliminar la funcionalidad?",
           {
-            title: "Eliminar ingrediente",
+            title: "Eliminar funcionalidad",
             size: "sm",
             buttonSize: "sm",
             okVariant: "primary",
@@ -249,15 +303,15 @@ export default {
         }
 
       try {
-        let resp = (await this.$http.post('/api/ingrediente/del', {
-          ingrId:ingrId
+        let resp = (await this.$http.post('/api/funcionalidad/del', {
+          funcId:funcId
         })).data
         this.$toast.success(resp.msg)
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
 
-      await this.getIngredientesWs()
+      await this.getFuncionalidadWs()
     },
     verificar:async function(){
      
@@ -281,28 +335,30 @@ export default {
     },
     modificar: async function(){
       try {
-        let resp = (await this.$http.post('/api/ingrediente/update',this.payload.form)).data
+        let resp = (await this.$http.post('/api/funcionalidad/update',this.payload.form)).data
         this.$toast.success(resp.msg)
         this.crudSettings.showModal = !this.crudSettings.showModal
-        await this.getIngredientesWs()
+        await this.getFuncionalidadWs()
 
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
 
     },
-    consultar_modal:async function(ingrId){
+    consultar_modal:async function(funcId){
       try {
-        let ingredientes=[]
-        ingredientes=(await this.$http.post('/api/ingrediente/consultar',
-        {ingrId:ingrId}
+        let funcionalidad=[]
+        funcionalidad=(await this.$http.post('/api/funcionalidad/consultar',
+        {funcId:funcId}
         )).data
-        console.log(ingredientes[0].ingrObservaciones)
-        this.payload.form.ingrId=ingredientes[0].ingrId,
-        this.payload.form.ingrNombre=ingredientes[0].ingrNombre,
-        this.payload.form.ingrObservaciones=ingredientes[0].ingrObservaciones,
-        this.payload.form.ingrExistentes=ingredientes[0].ingrExistentes,
-        this.payload.form.ingrMinimo=ingredientes[0].ingrMinimo
+        console.log(funcionalidad[0].funcDesc)
+        this.payload.form.funcId=funcionalidad[0].funcId,
+        this.payload.form.funcNombre=funcionalidad[0].funcNombre,
+        this.payload.form.funcDesc=funcionalidad[0].funcDesc,
+        this.payload.form.funcIcn=funcionalidad[0].funcIcn,
+        this.payload.form.funcUrl=funcionalidad[0].funcUrl,
+        this.payload.form.funcOrdn=funcionalidad[0].funcOrdn,
+        this.payload.form.funcTp=funcionalidad[0].funcTp
         this.sendModificar(this.payload.form)
 
       } catch (error) {
@@ -316,16 +372,16 @@ export default {
       }
         try {
        
-        this.listarIngredientes=[]
-        this.listarIngredientes=(await this.$http.post('/api/ingrediente/consultar',
-        {ingrId:this.payload2.form.datoBusc}
+        this.listarFuncionalidad=[]
+        this.listarFuncionalidad=(await this.$http.post('/api/funcionalidad/consultar',
+        {funcId:this.payload2.form.datoBusc}
         )).data
 
         this.crudSettingsthig.showModal= !this.crudSettingsthig.showModal
  
       } catch (error) {
         this.$toast.error(error.response.data.error)
-        this.listarIngredientes=[]
+        this.listarFuncionalidad=[]
       }
 
 

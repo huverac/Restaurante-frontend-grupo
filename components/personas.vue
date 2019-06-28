@@ -7,7 +7,7 @@
         <i class="fa fa-plus" aria-hidden="true" /> Nuevo
       </b-btn>
     
-      <b-btn variant="success" @click="getIngredientesWs" style="margin-left:10px">
+      <b-btn variant="success" @click="getPersonasWs" style="margin-left:10px">
         <i class="fa fa-refresh" aria-hidden="true" /> Refrescar
       </b-btn>
       <b-btn variant="warning" @click="crudSettingsthig.showModal = !crudSettingsthig.showModal" style="margin-left:10px">
@@ -16,9 +16,9 @@
     </div>
     
     <b-modal v-model="crudSettingsthig.showModal" :title="tituloFuncionalidad">
-      <b-form-group label="IdBuscar">
+      <b-form-group label="CedulaBuscar">
         <b-input
-          placeholder="datoBusc del ingrediente"
+          placeholder="Ingrese la cedula para buscar"
           ref="datoBusc"
           v-model="payload2.form.datoBusc"
           @keydown.native="validarCantidadCaracteres($event, payload2.form.datoBusc, 50)"
@@ -31,7 +31,7 @@
 
 
     <div class="mt-3">
-      <b-alert show variant="primary" v-if="listarIngredientes.length <= 0">No hay registros</b-alert>
+      <b-alert show variant="primary" v-if="listarPersonas.length <= 0">No hay registros</b-alert>
       <b-table
         responsive
         striped
@@ -40,20 +40,20 @@
         stacked="md"
         :per-page="perPage"
         :current-page="currentPage"
-        :items="listarIngredientes"
+        :items="listarPersonas"
       >
         <template slot="acciones" slot-scope="data">
-          <b-btn variant="danger" size="lg" @click="eliminar(data.item.ingrId)" title="Eliminar">
+          <b-btn variant="danger" size="lg" @click="eliminar(data.item.ingrCedula)" title="Eliminar">
             <i class="fa fa-trash" aria-hidden="true" />
           </b-btn>
-          <b-btn variant="primary" size="lg" @click="consultar_modal(data.item.ingrId)" title="Modificar">
+          <b-btn variant="primary" size="lg" @click="consultar_modal(data.item.ingrCedula)" title="Modificar">
             <i class="fa fa-pencil-square-o" aria-hidden="true" />
           </b-btn>
         </template>
       </b-table>
       
       <pagination
-        :total-rows="listarIngredientes.length"
+        :total-rows="listarPersonas.length"
         v-model="currentPage"
         :per-page="perPage"
         :list-per-page="listPerPage"
@@ -63,45 +63,63 @@
     
     <b-modal v-model="crudSettings.showModal" :title="tituloFuncionalidad">
       <b-form-group label="ID">
-        <b-input 
-          placeholder="ID del ingrediente"
+        <b-input
+          placeholder="ID de la Persona"
           ref="ingrId"
           @keydown.native="validarCantidadCaracteres($event, payload.form.ingrId, 50)"
           v-model="payload.form.ingrId"
         />
       </b-form-group>
 
-      <b-form-group label="Nombre">
+      <b-form-group label="Cedula">
         <b-input
-          placeholder="Nombre del ingrediente"
-          ref="ingrNombre"
-          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrNombre, 50)"
-          v-model="payload.form.ingrNombre"
+          placeholder="Ingrese cedula"
+          ref="ingrCedula"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrCedula, 50)"
+          v-model="payload.form.ingrCedula"
         />
       </b-form-group>
      
-      <b-form-group label="Observaciones">
+      <b-form-group label="Nombres">
         <b-input
-          v-model="payload.form.ingrObservaciones"
-          placeholder="Observaciones"
-          ref="ingrObservaciones"
-          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrObservaciones, 50)"
+          v-model="payload.form.ingrNombre"
+          placeholder="Ingrese Nombres"
+          ref="ingrNombre"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrNombre, 50)"
         />
       </b-form-group>
 
-      <b-form-group label="Existente">
+      <b-form-group label="Apellidos">
         <b-input
-          v-model="payload.form.ingrExistentes"
-          placeholder="Cantidad de Ingredientes"
-          ref="ingrExistentes"
+          v-model="payload.form.ingrApellido"
+          placeholder="Ingrese Apellidos"
+          ref="ingrApellido"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrApellido, 50)"
         />
       </b-form-group>
 
-      <b-form-group label="Minimo">
+      <b-form-group label="Direccion">
         <b-input
-          v-model="payload.form.ingrMinimo"
-          placeholder="Minimo de Ingredientes"
-          ref="ingrMinimo"
+          v-model="payload.form.ingrDireccion"
+          placeholder="Ingrese la Direccion"
+          ref="ingrDireccion"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrDireccion, 50)"
+        />
+      </b-form-group>
+      <b-form-group label="Telefono">
+        <b-input
+          v-model="payload.form.ingrTelefono"
+          placeholder="Ingrese la Telefono"
+          ref="ingrTelefono"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrTelefono, 50)"
+        />
+      </b-form-group>
+      <b-form-group label="Email">
+        <b-input
+          v-model="payload.form.ingrEmail"
+          placeholder="Ingrese la Direccion Email"
+          ref="ingrEmail"
+          @keydown.native="validarCantidadCaracteres($event, payload.form.ingrEmail, 50)"
         />
       </b-form-group>
       <div slot="modal-footer">
@@ -119,13 +137,15 @@ import validarForm from '@/mixins/validarForm'
 import Pagination from '@/components/pagination'
 /* import _ from 'lodash' */
 
-const FIELDS_INGREDIENTES = [
+const FIELDS_PERSONAS = [
   { key: 'ingrId', label:'ID'},
-  { key: 'ingrNombre', label: 'Nombre' },
-  { key: 'ingrObservaciones', label: 'Observaciones' },
-  { key: 'ingrExistentes', label: 'Existentes' },
-  { key: 'ingrMinimo', label: 'Minimo' },
-  { key: 'acciones', label: 'Accciones' } 
+  { key: 'ingrCedula', label:'Cedula'},
+  { key: 'ingrNombre', label: 'Nombres' },
+  { key: 'ingrApellido', label: 'Apellidos' },
+  { key: 'ingrDireccion', label: 'Direccion' },
+  { key: 'ingrTelefono', label: 'Telefono' },
+  { key: 'ingrEmail', label: 'Email' },
+  { key: 'acciones', label: 'Acciones' } 
 ]
   
 
@@ -139,77 +159,85 @@ const PAYLOAD2 = {
       type:'String',
       required:true,
       limite:50,
-      msg:'ID del ingrediente'
+      msg:'ID de la persona'
     }
    }
   }
 const PAYLOAD = {
   form: {
     ingrId: '',
+    ingrCedula: '',
     ingrNombre: '',
-    ingrObservaciones: '',
-    ingrExistentes: '',
-    ingrMinimo:''
+    ingrApellido: '',
+    ingrDireccion: '',
+    ingrTelefono: '',
+    ingrEmail: ''
   },
   config: {
     ingrId:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'ID del ingrediente'
+      msg:'ID de la persona'
     },
     ingrNombre: {
       type: 'String',
       required: true,
       limite: 50,
-      msg: 'Nombre del ingredientes'
+      msg: 'Nombre de la persona'
     },
-    ingrObservaciones: {
+    ingrApellido: {
       type: 'String',
       limite: 50,
       required: true,
-      msg: 'Observaciones'
+      msg: 'Apellido de la persona'
     },
-    ingrExistentes:{
+    ingrDireccion:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'Existentes '
+      msg:'Direccion de la persona'
     },
-    ingrMinimo:{
+    ingrTelefono:{
       type:'Integer',
       required:true,
       limite:50,
-      msg:'Minimo '
+      msg:'Telefono de la persona'
+    },
+    ingrEmail:{
+      type:'Integer',
+      required:true,
+      limite:50,
+      msg:'Email de la persona'
     }
   }
 }
 
 export default {
-  name: 'Ingredientes',
+  name: 'Personas',
   components: {
     Pagination
   },
   mixins: [tableMixin, validarForm, crudMixin(PAYLOAD), crudModal(PAYLOAD2)],
   data: () => ({
-    listarIngredientes: [],
-    fields: FIELDS_INGREDIENTES,
-    tituloFuncionalidad: 'Gestionar Ingredientes',
+    listarPersonas: [],
+    fields: FIELDS_PERSONAS,
+    tituloFuncionalidad: 'Gestionar Personas',
     payload: JSON.parse(JSON.stringify(PAYLOAD)),
     payload2: JSON.parse(JSON.stringify(PAYLOAD2)),
     nombreSearch: '',
   }),
   created: function() {
-    this.getIngredientesWs()
+    this.getPersonasWs()
   },
   methods: {
 
-    getIngredientesWs: async function() {
+    getPersonasWs: async function() {
       try {
-        this.listarIngredientes = (await this.$http.get('/api/ingrediente/list')).data
+        this.listarPersonas = (await this.$http.get('/api/persona/list')).data
       } catch (error) {
         this.$toast(error.response.data)
-        this.listarIngredientes = []
+        this.listarPersonas = []
       }
     },
     gestionar: async function() {
@@ -219,11 +247,11 @@ export default {
 
       try {
         let resp = (await this.$http.post(
-          '/api/ingrediente/register',
+          '/api/persona/register',
           this.payload.form
         )).data
         this.$toast.success(resp.msg)
-        await this.getIngredientesWs()
+        await this.getPersonasWs()
         this.crudSettings.showModal = !this.crudSettings.showModal
       } catch (error) {
         this.$toast.error(error.response.data.error)
@@ -231,9 +259,9 @@ export default {
     },
     eliminar: async function(ingrId) {
       const answer = await this.$bvModal.msgBoxConfirm(
-          "¿Desea eliminar el ingrediente?",
+          "øDesea eliminar la Persona?",
           {
-            title: "Eliminar ingrediente",
+            title: "Eliminar persona",
             size: "sm",
             buttonSize: "sm",
             okVariant: "primary",
@@ -249,15 +277,15 @@ export default {
         }
 
       try {
-        let resp = (await this.$http.post('/api/ingrediente/del', {
-          ingrId:ingrId
+        let resp = (await this.$http.post('/api/persona/del', {
+          ingrCedula:ingrId
         })).data
         this.$toast.success(resp.msg)
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
 
-      await this.getIngredientesWs()
+      this.getPersonasWs()
     },
     verificar:async function(){
      
@@ -281,28 +309,31 @@ export default {
     },
     modificar: async function(){
       try {
-        let resp = (await this.$http.post('/api/ingrediente/update',this.payload.form)).data
+        let resp = (await this.$http.post('/api/persona/update',this.payload.form)).data
         this.$toast.success(resp.msg)
         this.crudSettings.showModal = !this.crudSettings.showModal
-        await this.getIngredientesWs()
+        await this.getPersonasWs()
 
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
 
     },
-    consultar_modal:async function(ingrId){
+    consultar_modal:async function(ingrCedular){
+      console.log(ingrCedular)
       try {
-        let ingredientes=[]
-        ingredientes=(await this.$http.post('/api/ingrediente/consultar',
-        {ingrId:ingrId}
+        let personas=[]
+        personas=(await this.$http.post('/api/persona/consultar',
+        {ingrCedula:ingrCedular}
         )).data
-        console.log(ingredientes[0].ingrObservaciones)
-        this.payload.form.ingrId=ingredientes[0].ingrId,
-        this.payload.form.ingrNombre=ingredientes[0].ingrNombre,
-        this.payload.form.ingrObservaciones=ingredientes[0].ingrObservaciones,
-        this.payload.form.ingrExistentes=ingredientes[0].ingrExistentes,
-        this.payload.form.ingrMinimo=ingredientes[0].ingrMinimo
+        console.log('entro aqui')
+        this.payload.form.ingrId=personas[0].ingrId,
+        this.payload.form.ingrCedula=personas[0].ingrCedula,
+        this.payload.form.ingrNombre=personas[0].ingrNombre,
+        this.payload.form.ingrApellido=personas[0].ingrApellido,
+        this.payload.form.ingrDireccion=personas[0].ingrDireccion,
+        this.payload.form.ingrTelefono=personas[0].ingrTelefono,
+        this.payload.form.ingrEmail=personas[0].ingrEmail,
         this.sendModificar(this.payload.form)
 
       } catch (error) {
@@ -314,18 +345,19 @@ export default {
      if(!this.validarCampos(this.payload2)){
         return
       }
+      
         try {
        
-        this.listarIngredientes=[]
-        this.listarIngredientes=(await this.$http.post('/api/ingrediente/consultar',
-        {ingrId:this.payload2.form.datoBusc}
+        this.listarPersonas=[]
+        this.listarPersonas=(await this.$http.post('/api/persona/consultar',
+        {ingrCedula:this.payload2.form.datoBusc}
         )).data
 
         this.crudSettingsthig.showModal= !this.crudSettingsthig.showModal
  
       } catch (error) {
         this.$toast.error(error.response.data.error)
-        this.listarIngredientes=[]
+        this.listarPersonas=[]
       }
 
 
