@@ -1,21 +1,34 @@
 <template>
-  <div>
+  <b-container fluid>
     <br>
     <br>
     <br>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio repudiandae porro dignissimos alias ipsum doloremque optio deleniti aspernatur cupiditate qui, facilis dolore enim in laudantium perferendis voluptatem repellat odio explicabo.
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, at rem. Inventore repellendus saepe ut nobis eligendi repudiandae illo maiores! Aperiam alias itaque laborum nihil! Corrupti vel maxime facilis dignissimos.
-    </p>
+    <div class="row" style="background-image: url('https://1.bp.blogspot.com/-qD_4Dvc-xdE/XRVIVSaG16I/AAAAAAAAI0w/RZcreWeSVYENsm7EOgOv7Z2Ihz1lBVidACLcBGAs/s1600/colombia.png');  background-size: cover">
+      <br><br><br>
+      <div class="col-2 col-md-2 col-sm-2 col-lg-2" />
+      <div class="col-8 col-md-8 col-sm-8 col-lg-8">
+        <br><br>
+        <center>
+          <mayor><strong>¡Anímate a vivir la copa América con nosotros!</strong></mayor>
+        </center>
+        <br>
+      </div>
+      <div class="col-2 col-md-2 col-sm-2 col-lg-2" />
+    </div>
     <br>
-    <br>
+
     <section class="row">
       <article class=" text-justify  col-sm-6 col-md-6 col-lg-6 col-xl-6" style="padding-top: 10%;">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos natus ullam ipsa quisquam enim. Ipsum voluptatum totam pariatur fuga debitis, error facere animi incidunt, molestiae placeat saepe, amet veniam distinctio!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quasi ad dolor hic ipsum laudantium ut sint laboriosam, quibusdam quia dicta, ea aliquam expedita. Aut sed facilis, voluptates ducimus voluptas.
+        <center>
+          <etiqueta style="font-size:25px">¿Ya tienes tu parche de amigos para venir y apoyar a la selección?</etiqueta>
+          <br><br>
+          ¡Anímate! Te esperamos hoy a partir de las 5:30 p.m para que disfrutes del gran encuentro entre:
+          <br><br><center><img src="https://1.bp.blogspot.com/-DcPMv_BCL2E/XRWGve0vrwI/AAAAAAAAI1U/1teOy1KmLPoVcUUDCYJCT3Ujo5KPviptQCLcBGAs/s1600/thumb2-colombian-flag-colombia-south-america-silk-flag-of-colombia%2B%25281%2529.png" width="6%" height="6%" alt=""> Colombia VS Chile <img src="https://1.bp.blogspot.com/-LKkzE5D1QCQ/XRWGt89nVjI/AAAAAAAAI1Q/GX98xkfuwrE_rqgAdFT8LQU9Biigi8WdACLcBGAs/s1600/bandera-de-chile-10.jpg" width="6%" height="6%"></center><br><br>
+          <etiqueta style="font-size:20px">Recuerda: Tenemos las mejores bebidas, cócteles y el mejor sazón en comidas para que deleites tu paladar</etiqueta>
+        </center>
       </article>
       <article class="  col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <img src="https://d25rq8gxcq0p71.cloudfront.net/language-guide/758/pepperoni%20pizza.jpg" style="  border: black 10px solid;" width="100%" height="100%" alt="">
+        <img src="https://1.bp.blogspot.com/-mn1U1J4wlj0/XRWNqgo6M5I/AAAAAAAAI2A/NwU_YXhXpss7dXYEGTV2BEWjYUUaVchVgCLcBGAs/s1600/64252127_121095212460795_7447433837694418944_n.jpg" style="  border: black 5px solid;" width="100%" height="100%" alt="">
       </article>
     </section>
     <br>
@@ -26,12 +39,10 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi voluptatibus veniam incidunt sit nesciunt aliquam delectus quasi placeat possimus, eveniet natus quidem consequatur perferendis cum dolorum quam sapiente asperiores similique.
     </p>
     <br>
-    <hr>
-    <br>
-    <br>
+    <div style="background-image: url('https://1.bp.blogspot.com/-8FzTwrUHfcM/XRWbyYIDjhI/AAAAAAAAI3A/QSt-jF6I3HA0pujVoq4KzBvt8SndrfdvwCLcBGAs/s1600/margen.png'); background-repeat: repeat-x; background-size: contain"><br><br><br></div>
     <section class="row">
       <article class=" encabezado col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <img src="https://www.abc.es/media/sociedad/2016/08/10/hamburguesa-comida-rapida-k49--620x349@abc.jpg" style="  border: black 10px solid;" width="100%" height="100%" alt="">
+        <img src="https://1.bp.blogspot.com/-4x9RpIeAy2Q/XRVH_3wjn8I/AAAAAAAAI0Q/4kj8Ymuy4Nw550S_tHia-jPBFIbZasDFgCLcBGAs/s1600/64903898_121053015798348_2171628639878119424_n.jpg" style="  border: black 10px solid;" width="90%" height="100%" alt="">
       </article>
 
       <article class=" text-justify encabezado col-sm-6 col-md-6 col-lg-6 col-xl-6" style="padding-top: 10%;">
@@ -46,16 +57,13 @@
       Libero blanditiis recusandae, cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum excepturi natus, nulla consequatur vitae quo incidunt, accusantium, a quia facilis itaque alias iusto, dicta voluptas placeat atque dolorum maiores ad?
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi voluptatibus veniam incidunt sit nesciunt aliquam delectus quasi placeat possimus, eveniet natus quidem consequatur perferendis cum dolorum quam sapiente asperiores similique.
     </p>
-    <br>
-    <br>
-    <hr>
-    <br>
+    <div style="background-image: url('https://1.bp.blogspot.com/-8FzTwrUHfcM/XRWbyYIDjhI/AAAAAAAAI3A/QSt-jF6I3HA0pujVoq4KzBvt8SndrfdvwCLcBGAs/s1600/margen.png'); background-repeat: repeat-x; background-size: contain"><br><br><br></div>
     <br>
     <div id="Quienese" />
     <h2 class="encabezado" style="font-style:italic;">¿Quiénes somos?</h2>
     <br>
     <center>
-      <img src="http://www.deleitese.co/sites/default/files/2015/11/21/imagen_adicionales/rodizio.jpg" alt="" width="100%" height="100%">
+      <img src="https://1.bp.blogspot.com/-PUVtGQPemqQ/XRWUxCtiS0I/AAAAAAAAI2s/mL4bJSaPGakjXqf7u_ahnFRXdEWkMU9EACLcBGAs/s1600/WhatsApp%2BImage%2B2019-06-27%2Bat%2B11.14.57%2BPM.jpeg;" style="background-size: cover" alt="" width="100%" height="50%">
     </center>
     <br>
     <p class="encabezado text-justify">
@@ -65,15 +73,13 @@
     </p>
     <br>
     <br>
-    <hr>
-    <br>
-    <br>
+    <div style="background-image: url('https://1.bp.blogspot.com/-8FzTwrUHfcM/XRWbyYIDjhI/AAAAAAAAI3A/QSt-jF6I3HA0pujVoq4KzBvt8SndrfdvwCLcBGAs/s1600/margen.png'); background-repeat: repeat-x; background-size: contain"><br><br><br></div>
     <div id="Mision_Vision" />
     <section class="row">
       <article class=" text-justify encabezado col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <center>
           <strong><h2>Misión</h2></strong>
-          <img src="http://www.mayoristasymercado.com/wp-content/uploads/Almorzando-En-Un-Clasico-Restaurante-Jimmy-3653.jpg" alt="" width="100%" height="100% ">
+          <img src="https://1.bp.blogspot.com/-i8PjbSBN50A/XRWUxDQDHEI/AAAAAAAAI2w/9eVO5mpizMcAhG_4LUpDXuhMSVT9c9SMgCLcBGAs/s1600/WhatsApp%2BImage%2B2019-06-27%2Bat%2B11.14.57%2BPM%2B%25281%2529.jpeg" alt="" width="100%" height="100% ">
         </center>
         <br>
         <p class="text-justify encabezado">
@@ -91,15 +97,13 @@
         </p>
         <br>
         <center>
-          <img src="http://donapastora.com/wp-content/uploads/2016/08/quienessomos_01.jpg" width="100%" height="100%" alt="">
+          <img src="https://1.bp.blogspot.com/-CKGT0cRwZOs/XRWS4BMx4XI/AAAAAAAAI2Y/0csRgP128bkXpgeNQz2Gbk6_LgaF_4hZACLcBGAs/s1600/61401986_116201402950176_7956434694025773056_n.jpg" width="100%" height="100%" alt="">
         </center>
       </article>
     </section>
     <br>
     <br>
-    <hr>
-    <br>
-    <br>
+    <div style="background-image: url('https://1.bp.blogspot.com/-8FzTwrUHfcM/XRWbyYIDjhI/AAAAAAAAI3A/QSt-jF6I3HA0pujVoq4KzBvt8SndrfdvwCLcBGAs/s1600/margen.png'); background-repeat: repeat-x; background-size: contain"><br><br><br></div>
     <div id="Administrativo" />
     <h2 class="encabezado" style="font-style:italic;"> Diretorio Administrativo</h2>
     <br>
@@ -154,11 +158,12 @@
           <p class="">
             Correo: diego_18alberto@outlook.com
           </p>
-          <br>
-          <br>
         </div>
       </div>
     </center>
+    <br>
+    <div style="background-image: url('https://1.bp.blogspot.com/-8FzTwrUHfcM/XRWbyYIDjhI/AAAAAAAAI3A/QSt-jF6I3HA0pujVoq4KzBvt8SndrfdvwCLcBGAs/s1600/margen.png'); background-repeat: repeat-x; background-size: contain"><br><br><br></div>
+    <br><br>
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7">
@@ -186,30 +191,30 @@
             <etiqueta style="font-size:small">Si es el primer domicilio que desear realizar, debe llenar el formulario que se muestra a continuación</etiqueta>
             <b-form>
               <b-form-group id="input-group-1" label-for="input-1" description="Cédula de ciudadania o tarjeta de identidad">
-                <b-form-input ref="cedulaPersona" id="cedulaPersona" name="cedulaPersona" placeholder="Digite su número de identificación" />
+                <b-form-input ref="cedulaPersona" id="cedulaPersona" name="cedulaPersona" placeholder="Digite su número de identificación" v-model="payload.form.cedulaPersona" />
               </b-form-group>
               <b-form-group id="input-group-2" label-for="input-2">
-                <b-form-input id="nombresPersona" name="nombresPersona" placeholder="Digite sus nombres" />
+                <b-form-input id="nombresPersona" name="nombresPersona" placeholder="Digite sus nombres" v-model="payload.form.nombresPersona" />
               </b-form-group>
               <b-form-group id="input-group-2" label-for="input-2">
-                <b-form-input id="apellidosPersona" name="apellidosPersona" placeholder="Digite sus apellidos" />
+                <b-form-input id="apellidosPersona" name="apellidosPersona" placeholder="Digite sus apellidos" v-model="payload.form.apellidosPersona" />
               </b-form-group>
               <b-form-group id="input-group-2" label-for="input-2">
-                <b-form-input id="direccionPersona" name="direccionPersona" placeholder="Digite su dirección de residencia" />
+                <b-form-input id="direccionPersona" name="direccionPersona" placeholder="Digite su dirección de residencia" v-model="payload.form.direccionPersona" />
               </b-form-group>
               <b-form-group id="input-group-2" label-for="input-2">
-                <b-form-input id="telefonoPersona" name="telefonoPersona" placeholder="Digite su teléfono de contacto" />
+                <b-form-input id="telefonoPersona" name="telefonoPersona" placeholder="Digite su teléfono de contacto" v-model="payload.form.telefonoPersona" />
               </b-form-group>
               <b-form-group id="input-group-2" label-for="input-2">
-                <b-form-input id="emailPersona" name="emailPersona" placeholder="Digite su correo electrónico" />
+                <b-form-input id="emailPersona" name="emailPersona" placeholder="Digite su correo electrónico" v-model="payload.form.emailPersona" @keydown.native="validateEmail(payload.form.emailPersona)" />
               </b-form-group>
               <br>
               <div style="padding: 10px 10px; border: PowderBlue 5px solid; border-radius: 20px;">
                 <b-form-group id="input-group-2" label-for="input-2">
-                  <b-form-input id="usernamePersona" name="usernamePersona" placeholder="Digite su nuevo usuario" />
+                  <b-form-input id="usernamePersona" name="usernamePersona" placeholder="Digite su nuevo usuario" v-model="payload.form.usernamePersona" />
                 </b-form-group>
                 <b-form-group id="input-group-2" label-for="input-2">
-                  <b-form-input id="passwordPersona" name="passwordPersona" type="password" placeholder="Digite su contraseña" />
+                  <b-form-input id="passwordPersona" name="passwordPersona" type="password" placeholder="Digite su contraseña" v-model="payload.form.passwordPersona" />
                 </b-form-group>
               </div>
               <br>
@@ -223,10 +228,13 @@
     <footer>
       <p class="encabezado" style=" padding-bottom: 8%; padding-top: 8%; text-align: right; font-style: italic; ">“Desde un buen festín se puede perdonar a todos, incluso a los parientes”. <strong>Oscar Wilde </strong></p>
     </footer>
-  </div>
+  </b-container>
 </template>
 
 <script>
+import { tableMixin } from '@/mixins/table-mixin'
+import { crudMixin } from '@/mixins/crud-mixin'
+import validarForm from '@/mixins/validarForm'
 
 const FIELDS_PERSONA = [
   { key: 'cedulaPersona', label: 'Número de identificación' },
@@ -253,55 +261,56 @@ const PAYLOAD = {
     cedulaPersona: {
       type: 'String',
       required: true,
-      limite: 5,
+      limite: 10,
       msg: 'Número de identificación'
     },
     nombresPersona: {
       type: 'String',
       required: true,
-      limite: 5,
+      limite: 50,
       msg: 'Nombres'
     },
     apellidosPersona: {
       type: 'String',
       required: true,
-      limite: 5,
+      limite: 50,
       msg: 'Apellidos'
     },
     direccionPersona: {
       type: 'String',
       required: true,
-      limite: 5,
+      limite: 50,
       msg: 'Dirección de residencia'
     },
     telefonoPersona: {
       type: 'String',
       required: true,
-      limite: 5,
+      limite: 50,
       msg: 'Teléfono de contacto'
     },
     emailPersona: {
       type: 'String',
       required: true,
-      limite: 5,
+      limite: 50,
       msg: 'E-mail'
     },
     usernamePersona: {
       type: 'String',
       required: true,
-      limite: 5,
+      limite: 50,
       msg: 'Usuario'
     },
     passwordPersona: {
       type: 'String',
       required: true,
-      limite: 5,
+      limite: 50,
       msg: 'Contraseña'
     }
   }
 }
 export default {
   name: 'Persona',
+    mixins: [tableMixin, validarForm, crudMixin(PAYLOAD)],
   data: () => ({
     listaPersona: [],
     fields: FIELDS_PERSONA,
@@ -313,8 +322,15 @@ export default {
     this.getLibrosWs()
   },
   methods: {
+    getLibrosWs: async function() {
+      try {
+        this.listaLibros = (await this.$http.get('/api/libro/list')).data
+      } catch (error) {
+        this.$toast(error.response.data)
+        this.listaLibros = []
+      }
+    },
     gestionar: async function() {
-      console.log('xxxxxxxxxxxxxxxx')
       if (!this.validarCampos(this.payload)) {
         return
       }
@@ -324,7 +340,6 @@ export default {
           this.payload.form
         )).data
         this.$toast.success(resp.message)
-        await this.getLibrosWs()
       } catch (error) {
         this.$toast.error(error.response.data.error)
       }
@@ -347,8 +362,3 @@ etiqueta{
 }
 </style>
 
-<script>
-export default {
-  name: "Inicio"
-}
-</script>
