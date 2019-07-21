@@ -23,12 +23,12 @@
           <etiqueta style="font-size:25px">¿Ya tienes tu parche de amigos para venir y apoyar a la selección?</etiqueta>
           <br><br>
           ¡Anímate! Te esperamos hoy a partir de las 5:30 p.m para que disfrutes del gran encuentro entre:
-          <br><br><center><img src="https://1.bp.blogspot.com/-DcPMv_BCL2E/XRWGve0vrwI/AAAAAAAAI1U/1teOy1KmLPoVcUUDCYJCT3Ujo5KPviptQCLcBGAs/s1600/thumb2-colombian-flag-colombia-south-america-silk-flag-of-colombia%2B%25281%2529.png" width="6%" height="6%" alt=""> Colombia VS Chile <img src="https://1.bp.blogspot.com/-LKkzE5D1QCQ/XRWGt89nVjI/AAAAAAAAI1Q/GX98xkfuwrE_rqgAdFT8LQU9Biigi8WdACLcBGAs/s1600/bandera-de-chile-10.jpg" width="6%" height="6%"></center><br><br>
+          <br><br><center><img src="https://1.bp.blogspot.com/-DcPMv_BCL2E/XRWGve0vrwI/AAAAAAAAI1U/1teOy1KmLPoVcUUDCYJCT3Ujo5KPviptQCLcBGAs/s1600/thumb2-colombian-flag-colombia-south-america-silk-flag-of-colombia%2B%25281%2529.png" width="6%" height="6%" alt="Sin conexión a internet"> Colombia VS Chile <img src="https://1.bp.blogspot.com/-LKkzE5D1QCQ/XRWGt89nVjI/AAAAAAAAI1Q/GX98xkfuwrE_rqgAdFT8LQU9Biigi8WdACLcBGAs/s1600/bandera-de-chile-10.jpg" width="6%" height="6%"></center><br><br>
           <etiqueta style="font-size:20px">Recuerda: Tenemos las mejores bebidas, cócteles y el mejor sazón en comidas para que deleites tu paladar</etiqueta>
         </center>
       </article>
       <article class="  col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <img src="https://1.bp.blogspot.com/-mn1U1J4wlj0/XRWNqgo6M5I/AAAAAAAAI2A/NwU_YXhXpss7dXYEGTV2BEWjYUUaVchVgCLcBGAs/s1600/64252127_121095212460795_7447433837694418944_n.jpg" style="  border: black 5px solid;" width="100%" height="100%" alt="">
+        <img src="https://1.bp.blogspot.com/-mn1U1J4wlj0/XRWNqgo6M5I/AAAAAAAAI2A/NwU_YXhXpss7dXYEGTV2BEWjYUUaVchVgCLcBGAs/s1600/64252127_121095212460795_7447433837694418944_n.jpg" style="  border: black 5px solid;" width="100%" height="100%" alt="Sin conexión a internet">
       </article>
     </section>
     <br>
@@ -42,7 +42,7 @@
     <div style="background-image: url('https://1.bp.blogspot.com/-8FzTwrUHfcM/XRWbyYIDjhI/AAAAAAAAI3A/QSt-jF6I3HA0pujVoq4KzBvt8SndrfdvwCLcBGAs/s1600/margen.png'); background-repeat: repeat-x; background-size: contain"><br><br><br></div>
     <section class="row">
       <article class=" encabezado col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <img src="https://1.bp.blogspot.com/-4x9RpIeAy2Q/XRVH_3wjn8I/AAAAAAAAI0Q/4kj8Ymuy4Nw550S_tHia-jPBFIbZasDFgCLcBGAs/s1600/64903898_121053015798348_2171628639878119424_n.jpg" style="  border: black 10px solid;" width="90%" height="100%" alt="">
+        <img src="https://1.bp.blogspot.com/-4x9RpIeAy2Q/XRVH_3wjn8I/AAAAAAAAI0Q/4kj8Ymuy4Nw550S_tHia-jPBFIbZasDFgCLcBGAs/s1600/64903898_121053015798348_2171628639878119424_n.jpg" style="  border: black 10px solid;" width="90%" height="100%" alt="Sin conexión a internet">
       </article>
 
       <article class=" text-justify encabezado col-sm-6 col-md-6 col-lg-6 col-xl-6" style="padding-top: 10%;">
@@ -63,7 +63,7 @@
     <h2 class="encabezado" style="font-style:italic;">¿Quiénes somos?</h2>
     <br>
     <center>
-      <img src="https://1.bp.blogspot.com/-PUVtGQPemqQ/XRWUxCtiS0I/AAAAAAAAI2s/mL4bJSaPGakjXqf7u_ahnFRXdEWkMU9EACLcBGAs/s1600/WhatsApp%2BImage%2B2019-06-27%2Bat%2B11.14.57%2BPM.jpeg;" style="background-size: cover" alt="" width="100%" height="50%">
+      <img src="https://1.bp.blogspot.com/-PUVtGQPemqQ/XRWUxCtiS0I/AAAAAAAAI2s/mL4bJSaPGakjXqf7u_ahnFRXdEWkMU9EACLcBGAs/s1600/WhatsApp%2BImage%2B2019-06-27%2Bat%2B11.14.57%2BPM.jpeg;" style="background-size: cover" alt="Sin conexión a internet" width="100%" height="50%">
     </center>
     <br>
     <p class="encabezado text-justify">
@@ -79,7 +79,7 @@
       <article class=" text-justify encabezado col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <center>
           <strong><h2>Misión</h2></strong>
-          <img src="https://1.bp.blogspot.com/-i8PjbSBN50A/XRWUxDQDHEI/AAAAAAAAI2w/9eVO5mpizMcAhG_4LUpDXuhMSVT9c9SMgCLcBGAs/s1600/WhatsApp%2BImage%2B2019-06-27%2Bat%2B11.14.57%2BPM%2B%25281%2529.jpeg" alt="" width="100%" height="100% ">
+          <img src="https://1.bp.blogspot.com/-i8PjbSBN50A/XRWUxDQDHEI/AAAAAAAAI2w/9eVO5mpizMcAhG_4LUpDXuhMSVT9c9SMgCLcBGAs/s1600/WhatsApp%2BImage%2B2019-06-27%2Bat%2B11.14.57%2BPM%2B%25281%2529.jpeg" alt="Sin conexión a internet" width="100%" height="100% ">
         </center>
         <br>
         <p class="text-justify encabezado">
@@ -97,7 +97,7 @@
         </p>
         <br>
         <center>
-          <img src="https://1.bp.blogspot.com/-CKGT0cRwZOs/XRWS4BMx4XI/AAAAAAAAI2Y/0csRgP128bkXpgeNQz2Gbk6_LgaF_4hZACLcBGAs/s1600/61401986_116201402950176_7956434694025773056_n.jpg" width="100%" height="100%" alt="">
+          <img src="https://1.bp.blogspot.com/-CKGT0cRwZOs/XRWS4BMx4XI/AAAAAAAAI2Y/0csRgP128bkXpgeNQz2Gbk6_LgaF_4hZACLcBGAs/s1600/61401986_116201402950176_7956434694025773056_n.jpg" width="100%" height="100%" alt="Sin conexión a internet">
         </center>
       </article>
     </section>
@@ -118,10 +118,10 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-            <img src="https://i.pinimg.com/474x/57/f6/44/57f644034c550e0e00d40ff7a6110d2b.jpg" class="foto">
+            <img src="https://1.bp.blogspot.com/-DIdBI2BeUls/XTJNiBn7WqI/AAAAAAAAJaY/aAbQ0Yb-HuUk-KejDT7qRbpH55OU2y25ACLcBGAs/s1600/Captura%2Bde%2BPantalla%2B2019-07-19%2Ba%2Bla%2528s%2529%2B6.06.12%2Bp.%2Bm..png" alt="Sin conexión a internet" class="foto">
           </div>
           <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-            <img src="https://i.pinimg.com/474x/57/f6/44/57f644034c550e0e00d40ff7a6110d2b.jpg" class="foto">
+            <img src="https://1.bp.blogspot.com/-TYI3tqcch2g/XTJPqnqmZzI/AAAAAAAAJas/GZe0gqeSUvsLED2Gwb7s6UsMM9f__KV8ACLcBGAs/s1600/Captura%2Bde%2BPantalla%2B2019-07-19%2Ba%2Bla%2528s%2529%2B6.14.04%2Bp.%2Bm..png" alt="Sin conexión a internet" class="foto">
           </div>
         </div>
         <br>
